@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A190875-FB3B-4E75-9E04-612B517FE4E7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Codename.FileSyncChecker</RootNamespace>
+    <AssemblyName>Codename.FileSyncChecker</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>http://localhost/Codename.FileSyncChecker/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\MainFrame_Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Codename.MilkyWay">
+      <HintPath>..\Reference_Assembly\Codename.MilkyWay.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EULABox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EULABox.Designer.cs">
+      <DependentUpon>EULABox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrame.Designer.cs">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XProvider\AppConfig\AppSettings.cs" />
+    <Compile Include="XProvider\DataModel\FileCheckItem.cs" />
+    <Compile Include="XProvider\DataModel\FileSearchDate.cs" />
+    <Compile Include="XProvider\DataModel\LuncherArgs.cs" />
+    <Compile Include="XProvider\DataModel\SyncDirectoryPositionItem.cs" />
+    <Compile Include="XProvider\DataModel\WorkDirectory.cs" />
+    <Compile Include="XProvider\DataType\FileItemType.cs" />
+    <Compile Include="XProvider\DataType\FilePositionType.cs" />
+    <Compile Include="XProvider\DataType\FileSyncKeyType.cs" />
+    <Compile Include="XProvider\DataType\FileSyncCommandType.cs" />
+    <Compile Include="XProvider\DataType\SyncDirectoryPositionType.cs" />
+    <Compile Include="XProvider\DataType\WorkCommandType.cs" />
+    <Compile Include="XProvider\DataValue\AssemblyInfoValue.cs" />
+    <Compile Include="XProvider\DataValue\DateTimeDisplay.cs" />
+    <Compile Include="XProvider\ResourceValue\AboutBox\ControlValue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XProvider\ResourceValue\EULABox\ControlValue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XProvider\ResourceValue\FileHashCheckViewer\ControlValue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XProvider\ResourceValue\MainFrame\ControlValue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XProvider\ResourceValue\MainFrame\MenuControlValue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuControlValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XProvider\ResourceValue\MainFrame\WorkMessageValue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkMessageValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XProvider\ResourceValue\WorkMessageValue.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkMessageValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XProvider\WorkCommand\CoreWorker.cs" />
+    <Compile Include="XProvider\WorkCommand\FileHashChecker.cs" />
+    <Compile Include="XProvider\WorkCommand\FileSync.cs" />
+    <Compile Include="XProvider\WorkCommand\GetWorkItem.cs" />
+    <Compile Include="XProvider\WorkCommand\WorkerDelay.cs" />
+    <Compile Include="XProvider\WorkControl\FileHashCheckViewer.cs" />
+    <Compile Include="XProvider\WorkDelegate\dgFileHashCheckResult_CountWorker.cs" />
+    <Compile Include="XProvider\WorkDelegate\dgFileHashCheckResult_Worker.cs" />
+    <Compile Include="XProvider\WorkDelegate\dgFileHashCheckResult.cs" />
+    <Compile Include="XProvider\WorkDelegate\dgNoParameter.cs" />
+    <Compile Include="XProvider\WorkDelegate\dgSetReadyItem.cs" />
+    <Compile Include="XProvider\WorkDelegate\dgWorkCommandTypeParameter.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EULABox.resx">
+      <DependentUpon>EULABox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrame.resx">
+      <DependentUpon>MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="XProvider\ResourceValue\AboutBox\ControlValue.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControlValue.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XProvider\ResourceValue\EULABox\ControlValue.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControlValue.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XProvider\ResourceValue\FileHashCheckViewer\ControlValue.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControlValue.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XProvider\ResourceValue\MainFrame\ControlValue.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ControlValue.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XProvider\ResourceValue\MainFrame\MenuControlValue.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuControlValue.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XProvider\ResourceValue\MainFrame\WorkMessageValue.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WorkMessageValue.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XProvider\ResourceValue\WorkMessageValue.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WorkMessageValue.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+    <None Include="Resources\EULAContent_HTML.htm" />
+    <None Include="Resources\EULAContent.txt" />
+    <None Include="Resources\AppLogo.png" />
+    <None Include="Resources\MainFrame_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
