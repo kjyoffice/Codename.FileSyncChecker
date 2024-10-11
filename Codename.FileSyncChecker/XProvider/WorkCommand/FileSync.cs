@@ -25,8 +25,8 @@ namespace Codename.FileSyncChecker.XProvider.WorkCommand
                 if (this.laArgs.bStop == false)
                 {
                     // 초기화
-                    sSource = String.Empty;
-                    sTarget = String.Empty;
+                    sSource = string.Empty;
+                    sTarget = string.Empty;
                     fsctSyncType = DataType.FileSyncCommandType.None;
                     fptPosition = DataType.FilePositionType.Left;
 
@@ -114,7 +114,7 @@ namespace Codename.FileSyncChecker.XProvider.WorkCommand
                     if (fsctSyncType != DataType.FileSyncCommandType.None)
                     {
                         // ** 타겟의 파일은 실제로 존재하는 파일이겠지만, 프로그램 동작에선 있으나 없으나 신경쓰지 않아도 됨. 문제는 소스의 파일이 없으면 안됨. =_=
-                        if (((String.IsNullOrEmpty(sSource) == false) && (String.IsNullOrEmpty(sTarget) == false)) && (File.Exists(sSource) == true))
+                        if (((string.IsNullOrEmpty(sSource) == false) && (string.IsNullOrEmpty(sTarget) == false)) && (File.Exists(sSource) == true))
                         {
                             if (fsctSyncType == DataType.FileSyncCommandType.Copy)
                             {

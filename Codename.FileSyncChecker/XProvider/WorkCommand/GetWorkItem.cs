@@ -27,15 +27,15 @@ namespace Codename.FileSyncChecker.XProvider.WorkCommand
             {
                 if (this.laArgs.bStop == false)
                 {
-                    sFileName = fiItem.FullName.Replace(diSource.FullName, String.Empty);
+                    sFileName = fiItem.FullName.Replace(diSource.FullName, string.Empty);
 
                     if (
-                            ((String.IsNullOrEmpty(sFileName) == false) && (sFileName != @"\")) &&
+                            ((string.IsNullOrEmpty(sFileName) == false) && (sFileName != @"\")) &&
                             (
                                 (this.laArgs.bSkipNoneFileExtension == false) || 
                                 (
                                     (this.laArgs.bSkipNoneFileExtension == true) &&
-                                    (String.IsNullOrEmpty(fiItem.Extension) == false)
+                                    (string.IsNullOrEmpty(fiItem.Extension) == false)
                                 )
                             ) &&
                             (

@@ -21,7 +21,7 @@ namespace Codename.FileSyncChecker
             this.Text = XProvider.ResourceValue.EULABox.ControlValue.EULABox;
             this.Icon = XProvider.ResourceValue.MainFrame.ControlValue.MainFrame_Icon;
             //
-            this.wbContent.DocumentText = String.Format(
+            this.wbContent.DocumentText = string.Format(
                     XProvider.ResourceValue.EULABox.ControlValue.EULAContent_HTML,
                     XProvider.DataValue.AssemblyInfoValue.sName,
                     XProvider.DataValue.AssemblyInfoValue.vVersion.ToString(),

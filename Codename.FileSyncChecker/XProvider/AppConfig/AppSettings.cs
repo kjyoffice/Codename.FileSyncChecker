@@ -12,7 +12,7 @@ namespace Codename.FileSyncChecker.XProvider.AppConfig
     {
         private static string CheckWorkDirectory(string sDirectory)
         {
-            return ((String.IsNullOrEmpty(sDirectory) == false) ? ((Directory.Exists(sDirectory) == true) ? sDirectory : String.Empty) : String.Empty);
+            return ((string.IsNullOrEmpty(sDirectory) == false) ? ((Directory.Exists(sDirectory) == true) ? sDirectory : string.Empty) : string.Empty);
         }
 
         private static string[] ParsingBooleanAndStringMixedValue(string sValue)
@@ -29,7 +29,7 @@ namespace Codename.FileSyncChecker.XProvider.AppConfig
                 // 데이터 형 컨버팅이고 뭐고 문자열로 "true"인지의 경우만 체크하면 됨 ㅋㅋㅋ
                 if (sSplitTemp[0].ToLower() == "true")
                 {
-                    if (String.IsNullOrEmpty(sSplitTemp[1]) == false)
+                    if (string.IsNullOrEmpty(sSplitTemp[1]) == false)
                     {
                         if (sSplitTemp[1].IndexOf("|") > -1)
                         {

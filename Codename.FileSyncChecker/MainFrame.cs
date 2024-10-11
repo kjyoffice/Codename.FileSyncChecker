@@ -187,7 +187,7 @@ namespace Codename.FileSyncChecker
                         delegate
                         {
                             this.tspbWorkProgress.Value++;
-                            this.tsslblWorkMessage.Text = (XProvider.ResourceValue.MainFrame.WorkMessageValue.NowWorking + " >>> " + String.Format("{0:N0}", this.tspbWorkProgress.Value) + " / " + String.Format("{0:N0}", this.tspbWorkProgress.Maximum) + "");
+                            this.tsslblWorkMessage.Text = (XProvider.ResourceValue.MainFrame.WorkMessageValue.NowWorking + " >>> " + string.Format("{0:N0}", this.tspbWorkProgress.Value) + " / " + string.Format("{0:N0}", this.tspbWorkProgress.Maximum) + "");
                         }
                     )
                 );
@@ -195,7 +195,7 @@ namespace Codename.FileSyncChecker
             else
             {
                 this.tspbWorkProgress.Value++;
-                this.tsslblWorkMessage.Text = (XProvider.ResourceValue.MainFrame.WorkMessageValue.NowWorking + " >>> " + String.Format("{0:N0}", this.tspbWorkProgress.Value) + " / " + String.Format("{0:N0}", this.tspbWorkProgress.Maximum) + "");
+                this.tsslblWorkMessage.Text = (XProvider.ResourceValue.MainFrame.WorkMessageValue.NowWorking + " >>> " + string.Format("{0:N0}", this.tspbWorkProgress.Value) + " / " + string.Format("{0:N0}", this.tspbWorkProgress.Maximum) + "");
             }            
         }
 
@@ -263,10 +263,10 @@ namespace Codename.FileSyncChecker
                         new object[] {
                             (fciItem.iRowIndex + 1),
                             fciItem.sFileName,
-                            String.Format("{0:N0}", fciItem.lFileSizeLeft),
+                            string.Format("{0:N0}", fciItem.lFileSizeLeft),
                             fciItem.dtFileEditDateLeft.ToString(sDateDisplayForamt),
                             fciItem.sFileHashLeft,
-                            String.Format("{0:N0}", fciItem.lFileSizeRight),
+                            string.Format("{0:N0}", fciItem.lFileSizeRight),
                             fciItem.dtFileEditDateRight.ToString(sDateDisplayForamt),
                             fciItem.sFileHashRight,
                             fciItem.bFileMatch,
@@ -282,10 +282,10 @@ namespace Codename.FileSyncChecker
 
                 if (fciItem.fsktSyncType != XProvider.DataType.FileSyncKeyType.Skip)
                 {
-                    dgvrRow.Cells[fhcvViewer.sColumnName_FileSizeLeft].Value = String.Format("{0:N0}", fciItem.lFileSizeLeft);
+                    dgvrRow.Cells[fhcvViewer.sColumnName_FileSizeLeft].Value = string.Format("{0:N0}", fciItem.lFileSizeLeft);
                     dgvrRow.Cells[fhcvViewer.sColumnName_FileEditDateLeft].Value = fciItem.dtFileEditDateLeft.ToString(sDateDisplayForamt);
                     dgvrRow.Cells[fhcvViewer.sColumnName_FileHashLeft].Value = fciItem.sFileHashLeft;
-                    dgvrRow.Cells[fhcvViewer.sColumnName_FileSizeRight].Value = String.Format("{0:N0}", fciItem.lFileSizeRight);
+                    dgvrRow.Cells[fhcvViewer.sColumnName_FileSizeRight].Value = string.Format("{0:N0}", fciItem.lFileSizeRight);
                     dgvrRow.Cells[fhcvViewer.sColumnName_FileEditDateRight].Value = fciItem.dtFileEditDateRight.ToString(sDateDisplayForamt);
                     dgvrRow.Cells[fhcvViewer.sColumnName_FileHashRight].Value = fciItem.sFileHashRight;
                     dgvrRow.Cells[fhcvViewer.sColumnName_FileMatch].Value = fciItem.bFileMatch;
@@ -355,7 +355,7 @@ namespace Codename.FileSyncChecker
             if (tpTab != null)
             {
                 sTextSource = (tpTab.Tag as string[]);
-                tpTab.Text = String.Format(
+                tpTab.Text = string.Format(
                                     (sTextSource[0] + " " + sTextSource[1]), 
                                     fhcvViewer.lViewerRow.Count,
                                     fhcvViewer.lViewerRow.Where((x) => 
@@ -510,7 +510,7 @@ namespace Codename.FileSyncChecker
                 sCurrentDirectory = tbWorkDirectory.Text.Trim();
                 sSelectedDirectory = this.fbdWorkDirectory.SelectedPath.Trim();
 
-                if (String.IsNullOrEmpty(sCurrentDirectory) == true)
+                if (string.IsNullOrEmpty(sCurrentDirectory) == true)
                 {
                     // 선택된 경로가 빈값이면 검색된 내용이 없다고 간주
                     // 즉, 처음이라고 간주
@@ -544,7 +544,7 @@ namespace Codename.FileSyncChecker
             string sLeftDirectory = this.tbLeftDirectory.Text.Trim();
             string sRightDirectory = this.tbRightDirectory.Text.Trim();
             bool bExecute = false;
-            string sSelectedCopyDiectory = String.Empty;
+            string sSelectedCopyDiectory = string.Empty;
 
             // 작업의 진행여부
             if (this.bWorking == false)
@@ -553,7 +553,7 @@ namespace Codename.FileSyncChecker
                 if (wctCommandType == XProvider.DataType.WorkCommandType.FileHash)
                 {
                     // 디렉토리가 선택되었는지, 그리고 존재하는 디렉토리인지 체크
-                    if (((String.IsNullOrEmpty(sLeftDirectory) == false) && (String.IsNullOrEmpty(sRightDirectory) == false)) && ((Directory.Exists(sLeftDirectory) == true) && (Directory.Exists(sRightDirectory) == true)))
+                    if (((string.IsNullOrEmpty(sLeftDirectory) == false) && (string.IsNullOrEmpty(sRightDirectory) == false)) && ((Directory.Exists(sLeftDirectory) == true) && (Directory.Exists(sRightDirectory) == true)))
                     {
                         // 선택한 디렉토리가 같은 디렉토리인지, 그리고 하위 디렉토리에 속해지는지 체크
                         if ((sLeftDirectory != sRightDirectory) && ((sLeftDirectory.IndexOf(sRightDirectory) <= -1) && (sRightDirectory.IndexOf(sLeftDirectory) <= -1)))
@@ -595,7 +595,7 @@ namespace Codename.FileSyncChecker
                     if ((this.cwWorker != null) && ((this.laArgs != null) && (this.laArgs.bStop == false)))
                     {
                         // 작업경로 체크 - 선택된 경로와 Args의 경로가 동일한지 체크
-                        if (((String.IsNullOrEmpty(sLeftDirectory) == false) && (String.IsNullOrEmpty(sRightDirectory) == false)) && ((sLeftDirectory.ToLower() == this.laArgs.wdFileHashDirectory.sLeft.ToLower()) && (sRightDirectory.ToLower() == this.laArgs.wdFileHashDirectory.sRight.ToLower())))
+                        if (((string.IsNullOrEmpty(sLeftDirectory) == false) && (string.IsNullOrEmpty(sRightDirectory) == false)) && ((sLeftDirectory.ToLower() == this.laArgs.wdFileHashDirectory.sLeft.ToLower()) && (sRightDirectory.ToLower() == this.laArgs.wdFileHashDirectory.sRight.ToLower())))
                         {
                             // Args 리스트의 개수와 데이터그리드와의 리스트 갯수가 동일한지 체크
                             if (((this.fhcvMatch.dgvViewer.Rows.Count >= 0) && (this.fhcvOnlyLeft.dgvViewer.Rows.Count >= 0) && (this.fhcvOnlyRight.dgvViewer.Rows.Count >= 0)) && ((this.fhcvMatch.dgvViewer.Rows.Count == this.laArgs.lMatchItem.Count) && (this.fhcvOnlyLeft.dgvViewer.Rows.Count == this.laArgs.lOnlyLeftItem.Count) && (this.fhcvOnlyRight.dgvViewer.Rows.Count == this.laArgs.lOnlyRightItem.Count)))
@@ -648,16 +648,16 @@ namespace Codename.FileSyncChecker
                             // 싱크파일 복사인 경우 복사 될 디렉토리 지정 및 디렉토리 확인. 그리고 사용자 확인을 받기 위함
                             bExecute = false;
                             fbdCopyDirectory = new FolderBrowserDialog();
-                            sSelectedCopyDiectory = ((fbdCopyDirectory.ShowDialog() == DialogResult.OK) ? fbdCopyDirectory.SelectedPath : String.Empty);
+                            sSelectedCopyDiectory = ((fbdCopyDirectory.ShowDialog() == DialogResult.OK) ? fbdCopyDirectory.SelectedPath : string.Empty);
                             fbdCopyDirectory.Dispose();
 
-                            if (String.IsNullOrEmpty(sSelectedCopyDiectory) == false)
+                            if (string.IsNullOrEmpty(sSelectedCopyDiectory) == false)
                             {
                                 if (Directory.Exists(sSelectedCopyDiectory) == true)
                                 {
                                     if ((this.laArgs.wdFileHashDirectory.sLeft.IndexOf(sSelectedCopyDiectory) <= -1) && (this.laArgs.wdFileHashDirectory.sRight.IndexOf(sSelectedCopyDiectory) <= -1))
                                     {
-                                        bExecute = (MessageBox.Show(String.Format(XProvider.ResourceValue.MainFrame.WorkMessageValue.ExecuteConfirm_GetSyncFile, sSelectedCopyDiectory), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+                                        bExecute = (MessageBox.Show(string.Format(XProvider.ResourceValue.MainFrame.WorkMessageValue.ExecuteConfirm_GetSyncFile, sSelectedCopyDiectory), this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
                                     }
                                     else
                                     {

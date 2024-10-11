@@ -20,8 +20,8 @@ namespace Codename.FileSyncChecker.XProvider.WorkCommand
             {
                 if (this.laArgs.bStop == false)
                 {
-                    sFilePathLeft = String.Empty;
-                    sFilePathRight = String.Empty;
+                    sFilePathLeft = string.Empty;
+                    sFilePathRight = string.Empty;
 
                     if (fciItem.fitItemType == DataType.FileItemType.Match)
                     {
@@ -31,11 +31,11 @@ namespace Codename.FileSyncChecker.XProvider.WorkCommand
                     else if (fciItem.fitItemType == DataType.FileItemType.OnlyLeft)
                     {
                         sFilePathLeft = (this.laArgs.wdFileHashDirectory.sLeft + fciItem.sFileName);
-                        sFilePathRight = String.Empty;
+                        sFilePathRight = string.Empty;
                     }
                     else if (fciItem.fitItemType == DataType.FileItemType.OnlyRight)
                     {
-                        sFilePathLeft = String.Empty;
+                        sFilePathLeft = string.Empty;
                         sFilePathRight = (this.laArgs.wdFileHashDirectory.sRight + fciItem.sFileName);
                     }
 

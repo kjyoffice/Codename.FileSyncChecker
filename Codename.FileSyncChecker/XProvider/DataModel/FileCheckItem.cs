@@ -34,8 +34,8 @@ namespace Codename.FileSyncChecker.XProvider.DataModel
             this.sFileName = sFileName;
             this.dtFileEditDateLeft = DateTime.MinValue;
             this.dtFileEditDateRight = DateTime.MinValue;
-            this.sFileHashLeft = String.Empty;
-            this.sFileHashRight = String.Empty;
+            this.sFileHashLeft = string.Empty;
+            this.sFileHashRight = string.Empty;
             this.lFileSizeLeft = 0;
             this.lFileSizeRight = 0;
             this.bMatchFileHash = false;
@@ -49,10 +49,10 @@ namespace Codename.FileSyncChecker.XProvider.DataModel
         {
             FileInfo fiFile;
             DateTime dtEditDate = DateTime.MinValue;
-            string sFileHash = String.Empty;
+            string sFileHash = string.Empty;
             long lFileSize = 0;
 
-            if (String.IsNullOrEmpty(sFilePath) == false)
+            if (string.IsNullOrEmpty(sFilePath) == false)
             {
                 fiFile = new FileInfo(sFilePath);
                 dtEditDate = fiFile.LastWriteTime;
@@ -87,7 +87,7 @@ namespace Codename.FileSyncChecker.XProvider.DataModel
 
         private string CreateFileHash(string sFilePath)
         {
-            string result = String.Empty;
+            string result = string.Empty;
 
             using (MD5 hash = MD5.Create())
             {

@@ -55,7 +55,7 @@ namespace Codename.FileSyncChecker.XProvider.DataModel
             this.iItemTotalCount = 0;
             this.bStop = false;
             this.DefaultSetSkipItem();
-            this.sCopyDirectory = String.Empty;
+            this.sCopyDirectory = string.Empty;
         }
 
         public void StopSign()
