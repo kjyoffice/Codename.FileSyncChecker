@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace Codename.FileSyncChecker.XProvider.DataModel
 {
     public class FileCheckItem
     {
-        private Codename.MilkyWay.Cryptography.MD5 md5Hash { get; set; }
         public DataType.FileItemType fitItemType { get; set; }
         public DataType.FileSyncKeyType fsktSyncType { get; set; }
         public DateTime dtFileEditDateLeft { get; set; }
@@ -28,7 +29,6 @@ namespace Codename.FileSyncChecker.XProvider.DataModel
 
         public FileCheckItem(DataType.FileItemType fitType, string sFileName)
         {
-            this.md5Hash = new Codename.MilkyWay.Cryptography.MD5();
             this.fitItemType = fitType;
             this.iRowIndex = -1;
             this.sFileName = sFileName;
@@ -57,7 +57,7 @@ namespace Codename.FileSyncChecker.XProvider.DataModel
                 fiFile = new FileInfo(sFilePath);
                 dtEditDate = fiFile.LastWriteTime;
                 lFileSize = fiFile.Length;
-                sFileHash = md5Hash.CreateFileHash(sFilePath);
+                sFileHash = this.CreateFileHash(sFilePath);
             }
             
             if (fptPosition == DataType.FilePositionType.Left)
@@ -83,6 +83,24 @@ namespace Codename.FileSyncChecker.XProvider.DataModel
                 
                 this.bFileMatch = ((this.bMatchFileHash == true) && (this.bMatchFileSize == true) && (this.bMatchFileEditDate == true));
             }
+        }
+
+        private string CreateFileHash(string sFilePath)
+        {
+            string result = String.Empty;
+
+            using (MD5 hash = MD5.Create())
+            {
+                byte[] btFileBuffer = File.ReadAllBytes(sFilePath);
+                byte[] btHash = hash.ComputeHash(btFileBuffer);
+                string sRawHash = BitConverter.ToString(btHash);
+
+                result = Regex.Replace(sRawHash, "[^0-9A-Za-z]", string.Empty, RegexOptions.IgnoreCase).Trim().ToLower();
+
+                hash.Clear();
+            }
+
+            return result;
         }
     }
 }

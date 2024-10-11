@@ -8,7 +8,6 @@ namespace Codename.FileSyncChecker.XProvider.WorkCommand
 {
     public class FileSync
     {
-        private Codename.MilkyWay.Cryptography.MD5 md5Hash { get; set; }
         private DataModel.LuncherArgs laArgs { get; set; }
 
         // ---------------------------------------------------------
@@ -203,7 +202,6 @@ namespace Codename.FileSyncChecker.XProvider.WorkCommand
 
         public FileSync(DataModel.LuncherArgs laArgs)
         {
-            this.md5Hash = new Codename.MilkyWay.Cryptography.MD5();
             this.laArgs = laArgs;
         }
 
